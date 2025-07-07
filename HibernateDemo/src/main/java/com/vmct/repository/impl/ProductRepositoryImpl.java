@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.vmct.respository.impl;
+package com.vmct.repository.impl;
 
 import com.vmct.hibernatedemo.HibernateUtils;
 import com.vmct.pojo.Product;
@@ -20,7 +20,7 @@ import org.hibernate.Session;
  *
  * @author admin
  */
-public class ProductRespositoryImpl {
+public class ProductRepositoryImpl {
     private static final int PAGE_SIZE = 6;
     
     public List<Product> getProducts(Map<String, String> params) {
@@ -72,6 +72,29 @@ public class ProductRespositoryImpl {
             }
             
             return query.getResultList();
+        }
+    }
+    
+    public Product getProductById(int id) {
+        try (Session s = HibernateUtils.getFACTORY().openSession()) {
+            return s.get(Product.class, id);
+        }
+    }
+    
+    public void addOrUpdateProduct(Product p) {
+        try (Session s = HibernateUtils.getFACTORY().openSession()) {
+            if (p.getId() == null) {
+                s.persist(p);
+            } else {
+                s.merge(p);
+            }
+        }
+    }
+    
+    public void deleteProuct(int id) {
+        try (Session s = HibernateUtils.getFACTORY().openSession()) {
+            Product p = this.getProductById(id);
+            s.remove(p);
         }
     }
 }

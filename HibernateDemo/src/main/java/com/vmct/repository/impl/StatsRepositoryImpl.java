@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.vmct.respository.impl;
+package com.vmct.repository.impl;
 
 import com.vmct.hibernatedemo.HibernateUtils;
 import com.vmct.pojo.OrderDetail;

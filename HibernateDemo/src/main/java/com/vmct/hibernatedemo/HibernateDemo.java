@@ -5,9 +5,9 @@
 
 package com.vmct.hibernatedemo;
 
-import com.vmct.respository.impl.CategoryRespositoryImpl;
-import com.vmct.respository.impl.ProductRespositoryImpl;
-import com.vmct.respository.impl.StatsRepositoryImpl;
+import com.vmct.repository.impl.CategoryRepositoryImpl;
+import com.vmct.repository.impl.ProductRepositoryImpl;
+import com.vmct.repository.impl.StatsRepositoryImpl;
 import java.util.HashMap;
 import java.util.Map;
 
