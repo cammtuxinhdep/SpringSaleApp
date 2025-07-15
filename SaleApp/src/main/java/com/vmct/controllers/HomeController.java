@@ -15,6 +15,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author HP
  */
 @Controller
-// gắn @ControllerAdvice nếu muốn tất cả Controller đều được dùng ModelAttribute
+@ControllerAdvice
+// Gắn @ControllerAdvice nếu muốn tất cả Controller đều được dùng ModelAttribute
 public class HomeController {
     @Autowired
     private CategoryService cateService;
@@ -43,9 +45,5 @@ public class HomeController {
         model.addAttribute("products", this.prodService.getProducts(params));
         
         return "index";
-    }
-     @GetMapping("/products")
-    public String listProducts() {
-        return "products";
     }
 }
